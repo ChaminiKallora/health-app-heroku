@@ -1,0 +1,66 @@
+.mat-form-field {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.title {
+    text-align: center;
+}
+.title .mat-icon {
+    color: rgb(231, 208, 0);
+    font-size: 80px;
+}
+.title h1 {
+    color: #797979;
+}
+
+.wrapper {
+    margin: auto;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 5px 18px 2px #434343;
+    max-width: 400px;
+}
+
+.background {
+    width: 100%;
+
+    display: grid;
+    height: 100vh;
+    background: url('/assets/stethoscope2.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.social-buttons {
+    padding: 10px;
+}
+
+.login-button {
+    margin: 10px 0;
+}
+
+.links {
+    padding: 10px;
+}
+
+form {
+    padding: 10px;
+}

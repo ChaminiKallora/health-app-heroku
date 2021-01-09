@@ -1,0 +1,21 @@
+.button {
+    margin: 10px 0;
+    align-items: center;
+}
+
+.mat-form-field {
+    width: 70%;
+    border-color: black;
+    color: black;
+}
+
+.title{
+    text-align: center;
+    text-shadow: 2px 2px #d5d3f7;
+}
+
+.subTitle{
+    text-align: left;
+    text-shadow: 2px 2px #d5d3f7;
+    padding-left: 20%;
+}

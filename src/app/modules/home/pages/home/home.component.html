@@ -1,0 +1,4 @@
+<p>home works!</p>
+<button mat-raised-button color="primary" *ngIf="isLogged()" style="cursor: pointer" (click)="logout()">Logout</button>
+
+<button mat-raised-button color="primary" *ngIf="!isLogged()" style="cursor: pointer" routerLink="/auth/signin">Login</button>

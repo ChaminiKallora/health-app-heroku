@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.button {
+  margin: 0 10px;
+  align-items: center;
+}
+
+.csv-file-chooser-section {
+    position: relative;
+}
+
+.example-tab-icon {
+  margin-right: 8px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

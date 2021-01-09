@@ -1,0 +1,38 @@
+<mat-toolbar color='white' style="border-bottom: solid 2px rgba(160, 155, 155, 0.12)" >
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="toggleSideBar()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <h2>Health App</h2>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="23px">
+                <li>
+                    <button mat-icon-button routerLink="/profile">
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-icon-button>
+                        <mat-icon>help_outline</mat-icon>
+                    </button>
+                </li>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>person_outline</mat-icon></button>
+                        <mat-menu #menu="matMenu">
+                        <button mat-menu-item *ngIf="isLogged()" (click)="logout()">
+                            <mat-icon>exit_to_app</mat-icon>
+                            Logout
+                        </button>
+                        <button mat-menu-item *ngIf="!isLogged()" routerLink="/auth/signin">
+                            <mat-icon>login</mat-icon>
+                            Login
+                        </button>
+                        
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

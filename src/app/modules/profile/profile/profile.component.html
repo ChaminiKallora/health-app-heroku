@@ -1,0 +1,109 @@
+<mat-tab-group>
+
+    <!-- Profile Settings -->
+    <mat-tab label="Profile Settings">
+
+        <div class="title">
+            <h2>Profile Settings</h2>
+        </div>
+
+        <form style="text-align: center;" action="" [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" id="firstName" formControlName="firstName" placeholder="First Name"
+                    required />
+                <mat-error *ngIf="firstName.touched && firstName.errors">
+                    <mat-error *ngIf="firstName.errors.required">First name is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" formControlName="lastName">
+                <mat-error *ngIf="lastName.touched && lastName.errors">
+                    <mat-error *ngIf="lastName.errors.required">First name is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="lastName.touched && lastName.errors">
+                    <mat-error *ngIf="lastName.errors.required">Date is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <div></div>
+
+            <button class="button" mat-raised-button color="primary" [disabled]="!profileForm.valid">Update</button>
+
+        </form>
+
+    </mat-tab>
+
+
+    <!-- Account Settings -->
+    <mat-tab label="Account Settings">
+        <div class="title">
+            <h2>Account Settings</h2>
+        </div>
+
+        <br>
+
+        <form style="text-align: center;" action="" [formGroup]="passwordResetForm" (ngSubmit)="updatePassword()">
+            <div class="subTitle">
+                <h3>Change Password</h3>
+            </div>
+
+            <mat-form-field appearance="outline">
+                <mat-label>New password</mat-label>
+                <input matInput [type]="hide ? 'text':'password'" id="password" formControlName="password"
+                    placeholder="New Password" autocomplete="off" required />
+                <mat-icon matSuffix (click)="hide = !hide">
+                    {{ hide ? 'visibility' : 'visibility_off'}}
+                </mat-icon>
+
+                <mat-error
+                    *ngIf="passwordResetForm.get('password').touched && !passwordResetForm.get('password').valid && !resetPasswordFormValid">
+                    <mat-error *ngIf="passwordResetForm.get('password').errors.required">
+                        Password is required.
+                    </mat-error>
+                    <mat-error *ngIf="!passwordResetForm.get('password').errors.resetPasswordFormValid">
+                        Password require at least 8 characters.
+                    </mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Confirm password</mat-label>
+                <input matInput [type]="hideConfirmPwd ? 'text':'password'" id="confirmPassword"
+                    formControlName="confirmPassword" placeholder="Confirm password" autocomplete="off" required />
+                <mat-icon matSuffix (click)="hideConfirmPwd = !hideConfirmPwd">
+                    {{ hideConfirmPwd ? 'visibility' : 'visibility_off'}}
+                </mat-icon>
+
+                <mat-error
+                    *ngIf="passwordResetForm.get('confirmPassword').touched && passwordResetForm.get('confirmPassword').errors">
+                    <mat-error
+                        *ngIf="passwordResetForm.get('confirmPassword').touched && passwordResetForm.get('confirmPassword').errors && passwordResetForm.get('confirmPassword').errors.required">
+                        Confirm password is required.
+                    </mat-error>
+                    <mat-error
+                        *ngIf="passwordResetForm.get('confirmPassword').touched && passwordResetForm.get('confirmPassword').errors && passwordResetForm.get('confirmPassword').errors.mustMatch">
+                        Password Mismatch !
+                    </mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <div></div>
+
+            <button class="button" mat-raised-button color="primary" [disabled]="!passwordResetForm.valid">Change
+                Password</button>
+
+        </form>
+    </mat-tab>
+</mat-tab-group>

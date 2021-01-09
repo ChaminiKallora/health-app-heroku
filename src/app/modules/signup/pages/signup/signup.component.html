@@ -1,0 +1,156 @@
+<div class="background">
+    <div class="wrapper container">
+
+      
+      <div class="title">
+        <!-- <mat-icon>lock</mat-icon> -->
+        <h1>SIGNUP</h1>
+    </div>
+    <mat-progress-bar *ngIf="isSubmitting" mode="indeterminate"></mat-progress-bar>
+
+
+      <mat-horizontal-stepper [linear]="true" #stepper>
+        <mat-step [stepControl]="signupForm">
+          <form action="" [formGroup]="signupForm" *ngIf="!isSuccess">
+            <ng-template matStepLabel>Basic</ng-template>
+
+            <mat-form-field appearance="standard">
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="First Name" formControlName="firstName">
+              <mat-error *ngIf="$S('firstName').touched && $S('firstName').errors && $S('firstName').errors.required">Required!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+              <mat-label>Last Name</mat-label>
+              <input matInput placeholder="Last Name" formControlName="lastName">
+              <!-- <mat-hint>required</mat-hint> -->
+              <mat-error *ngIf="$S('lastName').touched && $S('lastName').errors && $S('lastName').errors.required">
+                  Required !
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field style="padding-top: 15px;">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dob">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="$S('dob').touched && $S('dob').errors && $S('dob').errors.required">
+                  Required !
+              </mat-error>
+            </mat-form-field>
+
+            <div class="form-action-buttons">
+              <button matStepperNext mat-raised-button class = "next-button" color="primary" [disabled]="!signupForm.valid">Next</button>
+            </div>
+
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="accountForm">
+          <form [formGroup]="accountForm" (ngSubmit)="submit(stepper)">
+            <ng-template matStepLabel>Account</ng-template>
+
+            <mat-form-field appearance="standard">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Email" formControlName="email">
+              <!-- <mat-hint>required</mat-hint> -->
+              <mat-error *ngIf="$A('email').touched && $A('email').errors && $A('email').errors.required">
+                  Required !
+              </mat-error>
+              <mat-error *ngIf="$A('email').touched && $A('email').errors && $A('email').errors.email">
+                  Invalid email !
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" >
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" autocomplete="off">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="$A('password').touched && $A('password').errors && $A('password').errors.required">
+                  Required !
+              </mat-error>
+              <mat-error *ngIf="$A('password').touched && $A('password').errors && $A('password').errors.minlength">
+                  Password should be greater than 8 characters !
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="standard" >
+              <mat-label>Confirm password</mat-label>
+              <input matInput [type]="hide2 ? 'password' : 'text'" formControlName="confirmPassword" autocomplete="off">
+              <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Confirm Password'" [attr.aria-pressed]="hide2">
+              <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="$A('confirmPassword').touched && $A('confirmPassword').errors && $A('confirmPassword').errors.required">
+                  Required !
+              </mat-error>
+              <mat-error *ngIf="$A('confirmPassword').touched && $A('confirmPassword').errors && $A('confirmPassword').errors.mustMatch">
+                  Password Mismatch !
+              </mat-error>
+              <!-- <mat-error *ngIf="$('confirmPassword').touched && $('confirmPassword').errors && $('confirmPassword').errors.minlength">
+                  Password should be greater than 8 characters !
+              </mat-error> -->
+            </mat-form-field>
+
+            <div class="form-action-buttons">
+              <button mat-button matStepperPrevious class = "back-button">Back</button>
+              <button mat-raised-button class = "signup-button" color="primary" [disabled]="!signupForm.valid || !accountForm.valid">Sign Up</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+
+          <div  class="success">
+            <mat-icon aria-hidden="false" aria-label="Done">done</mat-icon>
+            <p>You have successfully Signed Up with us</p>
+            <p>Redirecting to login in <strong>{{count}}</strong></p>
+          </div>
+         
+        </mat-step>
+      </mat-horizontal-stepper>
+
+    
+        <!-- <form action="" [formGroup]="signupForm" (ngSubmit)="submit()"  *ngIf="!isSuccess">
+    
+  
+        </form> -->
+    
+        <table class="bottom-wrapper full-width" cellspacing="0" *ngIf="!isSuccess">
+            <tr>
+                <td class = "left-align links">
+                    <small>
+                        <a routerLink="/auth/forgot-password">Forgot Password</a>
+                    </small>
+                </td>
+                <td  class = "right-align links">
+                    <small>Already a member?
+                        <a routerLink="/auth/signin">Login</a>
+                    </small>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="social-buttons">
+                    <button
+                    class = "full-width" 
+                    mat-raised-button color="warn"
+                    (click)="googleSignup()"
+                    [disabled]="isSubmitting">
+                        <i class="fa fa-google"></i> SignUp with google</button>
+                </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="social-buttons">
+                <button 
+                class="full-width"
+                mat-raised-button color="primary" 
+                (click)="facebookSignup()" 
+                [disabled]="isSubmitting">
+                    <i class="fa fa-facebook"></i> Signup with facebook</button>
+              </td>
+            </tr>
+  
+        </table>
+    
+    </div>
+    </div>

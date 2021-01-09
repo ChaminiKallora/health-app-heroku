@@ -1,0 +1,28 @@
+<mat-nav-list>
+    <div style="background-color:whitesmoke; padding: 5px 5px 5px 5px;">
+        <div class='profile-card'>
+            <div class='header'>
+                <h3>Hello {{firstName}}</h3>
+                <h5>{{email}}</h5>
+            </div>
+        </div>
+        <div>
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="" class="center">
+        </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader>Pages</h2>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">Dashboard</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/heart-disease-detection">Heart Diseases
+        Detection</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/stress-detection">Stress Detection</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/diabetes-detection">Diabetes Detection</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/spondyloarthritis-detection">Spondyloarthritis
+        Detection</a>
+
+    <mat-divider></mat-divider>
+
+</mat-nav-list>

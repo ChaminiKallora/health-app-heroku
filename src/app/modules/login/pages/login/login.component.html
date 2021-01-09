@@ -1,0 +1,68 @@
+<div class="background">
+    <div class="wrapper container">
+        <div class="title">
+            <!-- <mat-icon>lock</mat-icon> -->
+            <h1>LOGIN</h1>
+        </div>
+        <mat-progress-bar *ngIf="isSubmitting" mode="indeterminate"></mat-progress-bar>
+    
+        <form action="" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    
+            <mat-form-field >
+                <input matInput type="text" id="email" formControlName="email" placeholder="Enter your Email" required />
+                <mat-error *ngIf="$('email').touched && $('email').errors">
+                    <mat-error *ngIf="$('email').errors.required">Email is required</mat-error> 
+                    <mat-error *ngIf="$('email').errors.email">Invalid email format.</mat-error>
+                </mat-error>
+            </mat-form-field>
+    
+    
+            <mat-form-field >
+                <input matInput [type]="hide ? 'text':'password'" id="password" autocomplete="off" formControlName="password" placeholder="Enter your Password" required />
+                <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                <mat-error *ngIf="$('password').touched && $('password').errors">
+                    <mat-error *ngIf="$('password').errors.required">Password is required</mat-error> 
+                </mat-error>
+            </mat-form-field>
+    
+            <button class = "login-button" mat-raised-button color="primary" [disabled]="!loginForm.valid">Login</button>
+    
+        </form>
+    
+        <table class="full-width" cellspacing="0">
+            <tr>
+                <td class = "left-align links">
+                    <small>
+                        <a routerLink="/auth/forgot-password">Forgot Password</a>
+                    </small>
+                </td>
+                <td  class = "right-align links">
+                    <small>Don't have an account?
+                        <a routerLink="/signup">Sign Up</a>
+                    </small>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="social-buttons">
+                    <button
+                    class = "full-width" 
+                    mat-raised-button color="warn"
+                    (click)="googleLogin()"
+                    [disabled]="isSubmitting">
+                        <i class="fa fa-google"></i> Login with google</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="social-buttons">
+                    <button 
+                    class="full-width"
+                    mat-raised-button color="primary" 
+                    (click)="facebookLogin()" 
+                    [disabled]="isSubmitting">
+                        <i class="fa fa-facebook"></i> Login with facebook</button>
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+    </div>

@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    /* background: url(./assets/stethoscope2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+
+    /* background: url(./assets/stethoscope2.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+}
+
+/* html, body { height: 100;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+* {
+    font-family: Raleway /* Replace with your custom font */, sans-serif; 
+    /* Add !important to overwrite all elements */
+  }
