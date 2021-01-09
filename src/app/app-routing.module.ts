@@ -9,7 +9,7 @@ import { MainComponent } from './modules/main/main/main.component';
 const routes: Routes = [
   {
     path: '',
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     component: DashboardComponent,
     children: [{
       path: 'heart-disease-detection',
