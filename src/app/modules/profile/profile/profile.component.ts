@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   date: Date;
   hide: any;
+  hideConfirmPwd: any;
 
   // passwordResetForm
   isSubmitting2: boolean = false;
