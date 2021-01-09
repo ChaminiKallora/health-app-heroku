@@ -197,6 +197,9 @@ THE SOFTWARE.
 highcharts
 https://www.highcharts.com/license
 
+highcharts-angular
+SEE LICENSE IN <LICENSE>
+
 ngx-csv-parser
 MIT
 MIT License
