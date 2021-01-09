@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "health-app"
+  "defaultProject": "health-app",
+  "cli": {
+    "analytics": "e19d6315-3759-4b8b-9d85-4adfa77bf3ef"
+  }
 }
