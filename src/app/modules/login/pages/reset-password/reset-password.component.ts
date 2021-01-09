@@ -18,7 +18,7 @@ export class ResetPasswordComponent implements OnInit {
   userEmail: null;
   currentState: any;
   resetPasswordFormValid: boolean;
-
+  hide: any;
 
   count = 5;
   isSubmitting: boolean;

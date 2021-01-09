@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   public user: any = SocialUser;
   err: any;
+  hide: any;
 
   errorMsg: String;
   loginForm: FormGroup;
