@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class StressDetectionService {
 
-  STRESSDETECTION_URL = environment.STRESS_DETECTION_URL;
+  STRESSDETECTION_URL = "https://stress-detection-service.herokuapp.com";
 
   constructor(
     private http: HttpClient,
