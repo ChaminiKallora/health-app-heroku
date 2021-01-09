@@ -9,11 +9,11 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthenticationService {
 
-  BASEURL = "http://localhost:3001";
-  REG_URL = "http://localhost:3000/api/";
-  JWT_TOKEN_URL = "http://localhost:3003";
-  PROFILE_SERVICE_URL = "http://localhost:3004";
-  STRESS_DETECTION_URL = "https://stress-detection-service.herokuapp.com";
+  BASEURL = "";//"http://localhost:3001";
+  REG_URL = ""; //"http://localhost:3000/api/";
+  JWT_TOKEN_URL = "";//"http://localhost:3003";
+  PROFILE_SERVICE_URL = "";// "http://localhost:3004";
+  STRESS_DETECTION_URL = "";
 
   constructor(private http: HttpClient,
     private _router: Router) { }
