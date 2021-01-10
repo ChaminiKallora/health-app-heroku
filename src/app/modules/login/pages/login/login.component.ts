@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
           this.loginFormValid = true;
           localStorage.setItem('token', res.token)
           localStorage.setItem('email', this.loginForm.value.email);
-          this._router.navigate(['/'])
+          this._router.navigate(['/stress-detection'])
           this.isSubmitting = false;
         },
         (err: HttpErrorResponse) => {
