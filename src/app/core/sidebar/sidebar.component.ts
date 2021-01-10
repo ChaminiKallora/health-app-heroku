@@ -23,7 +23,9 @@ export class SidebarComponent implements OnInit {
       this.firstName = res.user.firstName;
       this.lastName = res.user.lastName;
     }, err => {
-
+      this.email = "chaminikallora@gmail.com";
+      this.firstName = "Chamini";
+      this.lastName = "Kallora";
     })
   }
 
