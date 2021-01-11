@@ -69,7 +69,12 @@ export class StressDetectionComponent implements OnInit {
     private _auth: AuthenticationService,
     private _router: Router,
     private formBuilder: FormBuilder,
-  ) 
+  ) {
+
+    this.pusher = new Pusher(id, {
+      cluster: ap2
+    });
+  }
 
   ngOnInit() {
     this.summaryForm = this.formBuilder.group({
