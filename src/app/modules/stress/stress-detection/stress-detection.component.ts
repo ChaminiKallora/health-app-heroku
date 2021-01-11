@@ -70,9 +70,8 @@ export class StressDetectionComponent implements OnInit {
     private _router: Router,
     private formBuilder: FormBuilder,
   ) {
-
-    this.pusher = new Pusher(id, {
-      cluster: ap2
+    this.pusher = new Pusher('24f0c9c5413d88c1e4be', {	
+      cluster: 'ap2'	
     });
   }
 
